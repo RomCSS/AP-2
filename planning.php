@@ -88,5 +88,15 @@ $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <form method="post">
         <button type="submit" name="purge">Purger</button>
     </form>
+    <?php
+// Vérifiez si l'utilisateur est connecté avant de créer le bouton de déconnexion
+if (isset($_SESSION['iduser'])) {
+    // Créez un formulaire pour déconnecter l'utilisateur
+    echo '<form method="post" action="deconnexion.php">';
+    echo '<button type="submit" class="button1" name="deconnexion">Déconnexion</button>';
+    echo '</form>';
+}
+?>
+
 </body>
 </html>

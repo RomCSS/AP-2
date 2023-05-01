@@ -4,11 +4,10 @@
   ini_set("display_errors", 1);
   require_once('db.php');
   session_start();
-
+  $date = $_SESSION['date'];
+  $heure = $_SESSION['heure'];
   // Vérifier si la date et l'heure ont été sélectionnées dans le formulaire
-  if (isset($_POST['date']) && isset($_POST['heure'])) {
-    $date = $_POST['date'];
-    $heure = $_POST['heure'];
+  if (isset($date) && isset($heure)) {
 
     // Sélectionner toutes les salles qui ne sont pas réservées à la date et l'heure choisies
     $stmt = $pdo->prepare("
